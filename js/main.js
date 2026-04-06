@@ -364,9 +364,11 @@
         var indexInRing = ringNodes.indexOf(node);
         var angleStep = (Math.PI * 2) / ringNodes.length;
         var angle = angleStep * indexInRing - Math.PI / 2;
-        node.style.left = (centerX + Math.cos(angle) * radius) + 'px';
-        node.style.top = (centerY + Math.sin(angle) * radius) + 'px';
-        node.style.margin = '-25px 0 0 -25px';
+        var halfW = node.offsetWidth / 2;
+        var halfH = node.offsetHeight / 2;
+        node.style.left = (centerX + Math.cos(angle) * radius - halfW) + 'px';
+        node.style.top = (centerY + Math.sin(angle) * radius - halfH) + 'px';
+        node.style.margin = '0';
       });
     }
 
