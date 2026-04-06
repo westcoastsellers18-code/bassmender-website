@@ -1,0 +1,280 @@
+/* ===== ORBITAL MUSIC PLAYER ===== */
+.music-section { overflow: hidden; }
+
+.orbital-player {
+  position: relative; width: 100%; max-width: 600px; height: 600px;
+  margin: 0 auto 3rem; display: flex; align-items: center; justify-content: center;
+}
+
+.orbit-ring {
+  position: absolute; border-radius: 50%;
+  border: 1px solid rgba(93,63,211,0.15); animation: rotateRing 60s linear infinite;
+}
+.ring-star {
+  position: absolute; width: 3px; height: 3px; border-radius: 50%;
+  background: rgba(237,237,237,0.5); box-shadow: 0 0 4px rgba(237,237,237,0.3);
+  animation: twinkleStar 3s ease-in-out infinite alternate;
+}
+.ring-star.sm { width: 2px; height: 2px; }
+.ring-star.pink { background: rgba(255,92,167,0.6); box-shadow: 0 0 5px rgba(255,92,167,0.4); }
+.ring-star.blue { background: rgba(77,157,224,0.6); box-shadow: 0 0 5px rgba(77,157,224,0.4); }
+.ring-star.green { background: rgba(50,255,126,0.5); box-shadow: 0 0 5px rgba(50,255,126,0.3); }
+.ring-star:nth-child(odd) { animation-delay: -1.5s; }
+.ring-star:nth-child(3n) { animation-duration: 4s; }
+.ring-star:nth-child(4n) { animation-duration: 2.5s; animation-delay: -0.8s; }
+@keyframes twinkleStar {
+  0% { opacity: 0.3; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1.3); }
+}
+.ring-1 { width: 350px; height: 350px; border-color: rgba(93,63,211,0.2); }
+.ring-2 { width: 480px; height: 480px; animation-direction: reverse; animation-duration: 80s; border-color: rgba(255,92,167,0.1); }
+.ring-3 { width: 580px; height: 580px; animation-duration: 100s; border-color: rgba(77,157,224,0.08); }
+@keyframes rotateRing { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+.orbit-center { position: relative; z-index: 10; width: 180px; height: 180px; display: flex; align-items: center; justify-content: center; }
+.center-glow {
+  position: absolute; width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(93,63,211,0.3) 0%, transparent 70%);
+  border-radius: 50%; animation: centerPulse 3s ease-in-out infinite;
+}
+@keyframes centerPulse { 0%, 100% { transform: scale(1); opacity: 0.5; } 50% { transform: scale(1.15); opacity: 0.8; } }
+
+.now-playing { position: relative; z-index: 2; text-align: center; padding: 1.5rem; }
+.now-playing-art {
+  width: 80px; height: 80px; margin: 0 auto 0.75rem;
+  perspective: 200px; position: relative;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ===== CELESTIAL BODY (BLACKHOLE/SUN) ===== */
+.celestial-body {
+  width: 80px; height: 80px; position: relative;
+  transform-style: preserve-3d;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.08s ease-out;
+}
+
+/* --- Blackhole mode (default) --- */
+.celestial-core {
+  width: 30px; height: 30px; border-radius: 50%; position: absolute;
+  background: radial-gradient(circle, #000 40%, #1a0a2e 70%, rgba(93,63,211,0.2) 100%);
+  box-shadow: 0 0 15px rgba(0,0,0,0.8), inset 0 0 10px rgba(0,0,0,0.9);
+  z-index: 5; transition: background 1s ease, transform 0.05s ease-out, box-shadow 0.08s ease-out;
+}
+
+.celestial-ring {
+  position: absolute; border-radius: 50%; border: 1px solid;
+  animation: celestialSpin 8s linear infinite;
+  transition: border-color 1s ease, box-shadow 1s ease;
+}
+.celestial-ring-1 {
+  width: 55px; height: 55px;
+  border-color: rgba(93,63,211,0.4);
+  transform: rotateX(75deg) rotateZ(0deg);
+  animation-duration: 6s;
+}
+.celestial-ring-2 {
+  width: 65px; height: 65px;
+  border-color: rgba(255,92,167,0.3);
+  transform: rotateX(70deg) rotateZ(30deg);
+  animation-duration: 8s; animation-direction: reverse;
+}
+.celestial-ring-3 {
+  width: 75px; height: 75px;
+  border-color: rgba(77,157,224,0.2);
+  transform: rotateX(65deg) rotateZ(-20deg);
+  animation-duration: 12s;
+}
+
+.accretion-disk {
+  position: absolute; width: 70px; height: 70px; border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: rgba(93,63,211,0.5);
+  border-right-color: rgba(255,92,167,0.3);
+  border-bottom-color: rgba(93,63,211,0.1);
+  transform: rotateX(75deg);
+  animation: celestialSpin 4s linear infinite;
+  box-shadow: 0 0 12px rgba(93,63,211,0.2);
+  transition: all 1s ease;
+}
+
+@keyframes celestialSpin {
+  from { transform: rotateX(75deg) rotateZ(0deg); }
+  to { transform: rotateX(75deg) rotateZ(360deg); }
+}
+.celestial-ring-2 { animation-name: celestialSpin2; }
+@keyframes celestialSpin2 {
+  from { transform: rotateX(70deg) rotateZ(30deg); }
+  to { transform: rotateX(70deg) rotateZ(390deg); }
+}
+.celestial-ring-3 { animation-name: celestialSpin3; }
+@keyframes celestialSpin3 {
+  from { transform: rotateX(65deg) rotateZ(-20deg); }
+  to { transform: rotateX(65deg) rotateZ(340deg); }
+}
+
+/* --- Sun mode --- */
+.celestial-body.sun-mode .celestial-core {
+  background: radial-gradient(circle, #fff 10%, #ffdd57 35%, #ff9500 65%, #ff5e00 100%);
+  box-shadow: 0 0 20px rgba(255,200,50,0.8), 0 0 40px rgba(255,150,0,0.4), inset 0 0 8px rgba(255,255,255,0.5);
+}
+.celestial-body.sun-mode .celestial-ring-1 { border-color: rgba(255,200,50,0.4); }
+.celestial-body.sun-mode .celestial-ring-2 { border-color: rgba(255,150,0,0.3); }
+.celestial-body.sun-mode .celestial-ring-3 { border-color: rgba(255,100,0,0.2); }
+.celestial-body.sun-mode .accretion-disk {
+  border-top-color: rgba(255,200,50,0.6);
+  border-right-color: rgba(255,150,0,0.4);
+  border-bottom-color: rgba(255,100,0,0.15);
+  box-shadow: 0 0 15px rgba(255,200,50,0.3);
+}
+
+/* --- Playing state (faster spin) --- */
+.celestial-body.playing .celestial-ring-1 { animation-duration: 3s; }
+.celestial-body.playing .celestial-ring-2 { animation-duration: 4s; }
+.celestial-body.playing .celestial-ring-3 { animation-duration: 6s; }
+.celestial-body.playing .accretion-disk { animation-duration: 2s; }
+
+/* --- Toggle button --- */
+.celestial-toggle {
+  position: absolute; bottom: -4px; right: -4px; z-index: 10;
+  width: 20px; height: 20px; border-radius: 50%; cursor: pointer;
+  background: rgba(10,10,10,0.8); border: 1px solid rgba(93,63,211,0.3);
+  color: var(--starlight); font-size: 0.6rem; transition: all 0.3s;
+  display: flex; align-items: center; justify-content: center;
+  line-height: 1;
+}
+.celestial-toggle:hover { border-color: var(--pink); background: rgba(93,63,211,0.3); }
+.now-playing-title { font-family: var(--font-display); font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; margin-bottom: 4px; }
+.now-playing-artist { font-family: var(--font-display); font-size: 0.55rem; font-weight: 400; letter-spacing: 3px; color: rgba(237,237,237,0.4); }
+
+/* Waveform */
+.waveform-visualizer { display: flex; align-items: flex-end; justify-content: center; gap: 2px; height: 28px; margin-top: 0.75rem; }
+.waveform-visualizer span {
+  display: block; width: 3px; height: 3px; border-radius: 1px;
+  background: var(--deep-purple); transition: height 0.06s ease-out;
+}
+/* Fallback CSS animation when analyser not available */
+.waveform-visualizer.active.no-analyser span { animation: waveform 0.8s ease-in-out infinite; }
+.waveform-visualizer.active.no-analyser span:nth-child(odd) { animation-delay: 0.15s; }
+.waveform-visualizer.active.no-analyser span:nth-child(3n) { animation-delay: 0.3s; }
+.waveform-visualizer.active.no-analyser span:nth-child(4n) { animation-delay: 0.5s; }
+@keyframes waveform {
+  0%, 100% { height: 3px; background: var(--deep-purple); }
+  25% { height: 18px; background: var(--pink); }
+  50% { height: 8px; background: var(--nebula-blue); }
+  75% { height: 22px; background: var(--alien-green); }
+}
+
+/* Track nodes */
+.track-nodes { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.track-node {
+  position: absolute; top: 50%; left: 50%; width: 50px; height: 50px; margin: -25px 0 0 -25px;
+  background: rgba(93,63,211,0.2); border: 2px solid var(--deep-purple); border-radius: 50%;
+  cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; z-index: 20;
+}
+.track-node:hover { background: rgba(255,92,167,0.3); border-color: var(--pink); transform: scale(1.2); box-shadow: 0 0 20px rgba(255,92,167,0.4); }
+.track-node.active { background: var(--pink); border-color: var(--pink); box-shadow: 0 0 30px rgba(255,92,167,0.6); }
+
+.node-pulse {
+  position: absolute; width: 100%; height: 100%; border-radius: 50%;
+  border: 1px solid var(--deep-purple); animation: nodePulse 2s infinite; pointer-events: none;
+}
+@keyframes nodePulse { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(2); opacity: 0; } }
+.track-node.active .node-pulse { border-color: var(--pink); }
+
+.node-label {
+  position: absolute; bottom: -32px; left: 50%; transform: translateX(-50%);
+  font-family: var(--font-display); font-size: 0.5rem; font-weight: 600; letter-spacing: 1px;
+  white-space: nowrap; color: var(--starlight); opacity: 0; transition: opacity 0.3s; pointer-events: none;
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+}
+.node-artist {
+  font-size: 0.38rem; font-weight: 400; letter-spacing: 1.5px; color: rgba(237,237,237,0.4);
+}
+.track-node:hover .node-label, .track-node.active .node-label { opacity: 1; }
+
+/* Mystery nodes */
+.track-node.mystery { opacity: 0.35; border-style: dashed; border-color: rgba(93,63,211,0.4); }
+.track-node.mystery:hover { opacity: 0.6; background: rgba(93,63,211,0.15); border-color: rgba(93,63,211,0.6); box-shadow: 0 0 15px rgba(93,63,211,0.2); }
+.track-node.mystery.active { opacity: 0.6; background: rgba(93,63,211,0.3); border-color: var(--deep-purple); border-style: dashed; box-shadow: 0 0 20px rgba(93,63,211,0.3); }
+.track-node.mystery .node-pulse { border-style: dashed; border-color: rgba(93,63,211,0.3); }
+
+/* Player controls */
+.player-controls {
+  display: flex; align-items: center; gap: 1rem;
+  max-width: 500px; margin: 0 auto 2rem; padding: 0 1rem;
+  transition: all 0.4s ease;
+}
+.player-controls.fixed-bar {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 950;
+  max-width: 100%; margin: 0; padding: 12px 2rem;
+  background: rgba(10,10,10,0.92); backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(93,63,211,0.2);
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.4);
+}
+.player-btn {
+  width: 44px; height: 44px; border-radius: 50%; cursor: pointer;
+  background: rgba(93,63,211,0.2); border: 2px solid var(--deep-purple);
+  color: var(--starlight); font-size: 1rem; transition: all 0.3s;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.player-btn:hover { background: rgba(255,92,167,0.3); border-color: var(--pink); box-shadow: 0 0 15px rgba(255,92,167,0.3); }
+.play-icon { margin-left: 2px; }
+.player-progress-wrap {
+  flex: 1; height: 6px; background: rgba(93,63,211,0.15);
+  border-radius: 3px; cursor: pointer; overflow: hidden; position: relative;
+}
+.player-progress-bar {
+  height: 100%; width: 0%; border-radius: 3px;
+  background: linear-gradient(90deg, var(--deep-purple), var(--pink));
+  transition: width 0.1s linear;
+}
+.player-progress-wrap:hover .player-progress-bar { box-shadow: 0 0 8px rgba(255,92,167,0.4); }
+.player-time {
+  font-family: var(--font-display); font-size: 0.55rem; font-weight: 400;
+  letter-spacing: 1px; color: rgba(237,237,237,0.4); white-space: nowrap; flex-shrink: 0;
+}
+
+/* Volume control */
+.volume-control { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+.volume-icon { font-size: 0.85rem; color: rgba(237,237,237,0.4); }
+.volume-slider {
+  -webkit-appearance: none; appearance: none;
+  width: 70px; height: 4px; border-radius: 2px;
+  background: rgba(93,63,211,0.2); outline: none; cursor: pointer;
+}
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--deep-purple); border: none; cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+.volume-slider::-webkit-slider-thumb:hover { box-shadow: 0 0 8px rgba(93,63,211,0.5); }
+.volume-slider::-moz-range-thumb {
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--deep-purple); border: none; cursor: pointer;
+}
+.volume-slider::-moz-range-track { background: rgba(93,63,211,0.2); height: 4px; border-radius: 2px; border: none; }
+
+/* Streaming links */
+.stream-links { display: flex; justify-content: center; gap: 2rem; padding-top: 2rem; }
+.stream-link { color: rgba(237,237,237,0.4); transition: all 0.3s; padding: 8px; }
+.stream-link:hover { color: var(--alien-green); transform: translateY(-3px); }
+
+@media (max-width: 768px) {
+  .orbital-player { height: 400px; max-width: 400px; }
+  .ring-1 { width: 240px; height: 240px; }
+  .ring-2 { width: 330px; height: 330px; }
+  .ring-3 { width: 390px; height: 390px; }
+  .track-node { width: 40px; height: 40px; margin: -20px 0 0 -20px; }
+  .orbit-center { width: 140px; height: 140px; }
+  .center-glow { width: 160px; height: 160px; }
+  .now-playing-art { width: 60px; height: 60px; }
+  .now-playing-title { font-size: 0.6rem; }
+}
+@media (max-width: 480px) {
+  .orbital-player { height: 320px; max-width: 320px; }
+  .ring-1 { width: 200px; height: 200px; }
+  .ring-2 { width: 270px; height: 270px; }
+  .ring-3 { width: 310px; height: 310px; }
+}

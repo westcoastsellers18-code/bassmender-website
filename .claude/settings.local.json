@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s -L -o /tmp/bmth.html \"https://www.bmthofficial.com/\")",
+      "Bash(curl -s -L -o /tmp/peekaboo.html \"https://www.peekaboobeats.com/\")",
+      "Bash(curl -s -L -o /tmp/zedsdead.html \"https://www.zedsdead.net/\")",
+      "WebFetch(domain:www.peekaboobeats.com)",
+      "WebFetch(domain:www.zedsdead.net)",
+      "Bash(curl -s -L -A \"Mozilla/5.0 \\(Macintosh; Intel Mac OS X 10_15_7\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0.0.0 Safari/537.36\" \"https://www.bmthofficial.com/\" -o /tmp/bmth.html)",
+      "Read(//private/tmp/**)",
+      "Bash(wc -l /Users/talon/Documents/Claude/Web App/Bassmender.com/index.html /Users/talon/Documents/Claude/Web App/Bassmender.com/css/*.css /Users/talon/Documents/Claude/Web App/Bassmender.com/js/*.js)",
+      "Bash(open \"/Users/talon/Documents/Claude/Web App/Bassmender.com/index.html\")"
+    ]
+  }
+}
