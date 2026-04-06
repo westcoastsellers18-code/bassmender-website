@@ -262,19 +262,24 @@
 .stream-link:hover { color: var(--alien-green); transform: translateY(-3px); }
 
 @media (max-width: 768px) {
-  .orbital-player { height: 400px; max-width: 400px; }
-  .ring-1 { width: 240px; height: 240px; }
-  .ring-2 { width: 330px; height: 330px; }
-  .ring-3 { width: 390px; height: 390px; }
-  .track-node { width: 40px; height: 40px; margin: -20px 0 0 -20px; }
-  .orbit-center { width: 140px; height: 140px; }
-  .center-glow { width: 160px; height: 160px; }
-  .now-playing-art { width: 60px; height: 60px; }
-  .now-playing-title { font-size: 0.6rem; }
+  .orbital-player { height: 450px; max-width: 450px; }
+  .ring-1 { width: 260px; height: 260px; }
+  .ring-2 { width: 360px; height: 360px; }
+  .ring-3 { width: 430px; height: 430px; }
+  .track-node { width: 36px; height: 36px; margin: -18px 0 0 -18px; }
+  .orbit-center { width: 130px; height: 130px; }
+  .center-glow { width: 150px; height: 150px; }
+  .now-playing-art { width: 55px; height: 55px; }
+  .now-playing-title { font-size: 0.55rem; }
+  .now-playing-artist { font-size: 0.45rem; }
+  .node-label { font-size: 0.4rem; bottom: -28px; }
+  .node-artist { font-size: 0.3rem; }
 }
 @media (max-width: 480px) {
-  .orbital-player { height: 320px; max-width: 320px; }
-  .ring-1 { width: 200px; height: 200px; }
-  .ring-2 { width: 270px; height: 270px; }
-  .ring-3 { width: 310px; height: 310px; }
+  .orbital-player { height: 380px; max-width: 380px; }
+  .ring-1 { width: 220px; height: 220px; }
+  .ring-2 { width: 310px; height: 310px; }
+  .ring-3 { width: 370px; height: 370px; }
+  .track-node { width: 32px; height: 32px; margin: -16px 0 0 -16px; }
+  .node-label { font-size: 0.35rem; bottom: -26px; }
 }
