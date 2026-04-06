@@ -9,8 +9,8 @@
   var nebulaClouds = [];
   var mouseX = 0, mouseY = 0;
 
-  var isMobile = window.matchMedia('(max-width: 768px)').matches;
-  var STAR_COUNT = isMobile ? 0 : 200;
+  var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth <= 768;
+  var STAR_COUNT = isMobile ? 40 : 200;
   var NEBULA_COUNT = 5;
 
   function resize() {
