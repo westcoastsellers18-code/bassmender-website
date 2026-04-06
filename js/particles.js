@@ -10,8 +10,8 @@
   var mouseX = 0, mouseY = 0;
 
   var isMobile = window.matchMedia('(max-width: 768px)').matches;
-  var STAR_COUNT = isMobile ? 140 : 200;
-  var NEBULA_COUNT = isMobile ? 3 : 5;
+  var STAR_COUNT = isMobile ? 120 : 200;
+  var NEBULA_COUNT = 5;
 
   function resize() {
     width = canvas.width = window.innerWidth;
