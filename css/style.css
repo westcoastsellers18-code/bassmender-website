@@ -442,9 +442,10 @@ body {
   .nav-hamburger { display: flex; }
   .nav-player-name { display: none; }
   .main-nav { padding: 0 1rem; }
-  .section { padding: 80px 1rem 3rem; overflow-x: hidden; }
+  .section { padding: 60px 1rem 2rem; min-height: auto; overflow-x: hidden; }
+  .hero-section { min-height: 100vh; }
   .section-header { overflow: hidden; }
-  .section-title { letter-spacing: 3px; font-size: clamp(2rem, 6vw, 3rem); word-break: break-word; }
+  .section-title { letter-spacing: 2px; word-break: break-word; }
   .tour-item { flex-direction: column; text-align: center; gap: 1rem; padding: 1.25rem; }
   .hero-title { letter-spacing: 4px; font-size: clamp(2rem, 6vw, 3.5rem); }
   .hero-subtitle { letter-spacing: 3px; }
@@ -452,6 +453,6 @@ body {
 }
 @media (max-width: 480px) {
   .merch-grid { grid-template-columns: 1fr; }
-  .section-title { letter-spacing: 2px; font-size: clamp(1.8rem, 7vw, 2.5rem); }
+  .section-title { letter-spacing: 1px; }
   .hero-title { letter-spacing: 2px; }
 }
