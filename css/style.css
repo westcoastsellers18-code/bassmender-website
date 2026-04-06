@@ -13,7 +13,7 @@
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: var(--deep-purple) var(--void-black); }
+html { scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: var(--deep-purple) var(--void-black); overflow-x: hidden; }
 
 body {
   font-family: var(--font-body);
@@ -160,7 +160,7 @@ body {
 .mobile-nav-link:hover { color: var(--pink); text-shadow: 0 0 20px rgba(255,92,167,0.5); }
 
 /* ===== MAIN CONTENT ===== */
-.main-content { position: relative; z-index: 1; }
+.main-content { position: relative; z-index: 1; overflow-x: hidden; }
 .section { min-height: 100vh; padding: 100px 2rem 4rem; position: relative; }
 .merch-section { min-height: auto; }
 .about-section { min-height: auto; }
