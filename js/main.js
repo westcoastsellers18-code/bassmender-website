@@ -357,13 +357,9 @@
         if (ringEl) { radius = ringEl.offsetWidth / 2; }
         else { radius = ring === 1 ? 175 : 240; }
 
-        var allNodes = Array.from(nodes);
-        var ringNodes = allNodes.filter(function(n) {
-          return (parseInt(n.style.getPropertyValue('--ring')) || 1) === ring;
-        });
-        var indexInRing = ringNodes.indexOf(node);
-        var angleStep = (Math.PI * 2) / ringNodes.length;
-        var angle = angleStep * indexInRing - Math.PI / 2;
+        // Use the angle from the HTML data attribute
+        var angleDeg = parseFloat(node.style.getPropertyValue('--angle')) || 0;
+        var angle = (angleDeg * Math.PI / 180) - Math.PI / 2;
         var halfW = node.offsetWidth / 2;
         var halfH = node.offsetHeight / 2;
         node.style.left = (centerX + Math.cos(angle) * radius - halfW) + 'px';
