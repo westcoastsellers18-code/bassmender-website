@@ -229,7 +229,7 @@ body {
 .hero-bg-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(93,63,211,0.15) 0%, transparent 70%); pointer-events: none; }
 .hero-content { position: relative; z-index: 2; }
 .hero-title {
-  font-family: var(--font-display); font-size: clamp(2.5rem, 8vw, 6rem); font-weight: 900;
+  font-family: var(--font-display); font-size: clamp(3rem, 9.6vw, 7.2rem); font-weight: 900;
   letter-spacing: 12px; line-height: 1.1;
   background: linear-gradient(135deg, var(--starlight) 0%, var(--deep-purple) 50%, var(--pink) 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem; position: relative;
