@@ -1,6 +1,6 @@
 // ===== NAME SELECT & FILE SELECT =====
 (function() {
-  var MAX_NAME_LENGTH = 12;
+  var MAX_NAME_LENGTH = 20;
   var playerName = '';
 
   // === NAME SELECT ===
@@ -58,7 +58,7 @@
     } else if (e.key === 'Backspace') {
       e.preventDefault();
       removeChar();
-    } else if (e.key.length === 1 && /[a-zA-Z0-9._\-]/.test(e.key)) {
+    } else if (e.key.length === 1 && /[a-zA-Z0-9._\- ]/.test(e.key)) {
       addChar(e.key);
       var matchBtn = charGrid.querySelector('[data-char="' + e.key + '"]');
       if (matchBtn) {
