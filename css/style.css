@@ -449,6 +449,8 @@ body {
   .tour-item { flex-direction: column; text-align: center; gap: 1rem; padding: 1.25rem; }
   .hero-title { letter-spacing: 4px; font-size: clamp(5.04rem, 14vw, 5.76rem); }
   .hero-subtitle { letter-spacing: 3px; }
+  .cta-icon { display: none; }
+  .primary-cta { justify-content: center; text-align: center; }
   .merch-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
 }
 @media (max-width: 480px) {
