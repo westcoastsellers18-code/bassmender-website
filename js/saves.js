@@ -74,14 +74,10 @@
 
   function renderHearts(unlocked) {
     var html = '';
-    var totalHearts = BASE_HEARTS + (TOTAL_ACHIEVEMENTS * HEARTS_PER_ACHIEVEMENT);
-    var filledHearts = BASE_HEARTS + (unlocked * HEARTS_PER_ACHIEVEMENT);
+    var bonusHearts = unlocked * HEARTS_PER_ACHIEVEMENT;
+    var totalHearts = BASE_HEARTS + bonusHearts;
     for (var i = 0; i < totalHearts; i++) {
-      if (i < filledHearts) {
-        html += '<span class="heart full">&hearts;</span>';
-      } else {
-        html += '<span class="heart">&hearts;</span>';
-      }
+      html += '<span class="heart full">&hearts;</span>';
     }
     return html;
   }
