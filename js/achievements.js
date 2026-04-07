@@ -7,7 +7,7 @@
     first_signal:     { id: 'first_signal',     name: 'FIRST SIGNAL',     icon: '\u25C9', desc: 'First visit to the void' },
     frequency_hunter: { id: 'frequency_hunter', name: 'FREQ HUNTER',      icon: '\u2669', desc: 'Tuned all 5 frequencies' },
     void_walker:      { id: 'void_walker',      name: 'VOID WALKER',      icon: '\u2604', desc: 'Reached the end of space' },
-    night_owl:        { id: 'night_owl',         name: 'NIGHT OWL',        icon: '\u263D', desc: 'Late night session (12-5am)' },
+    night_owl:        { id: 'night_owl',         name: 'NIGHT OWL',        icon: '\u263D', desc: 'Late night session (6pm-5am)' },
     name_changer:     { id: 'name_changer',      name: 'NAME CHANGER',     icon: '\u270E', desc: 'Changed your identity' }
   };
 
@@ -117,7 +117,7 @@
 
   function checkNightOwl() {
     var hour = new Date().getHours();
-    if (hour < 5) unlock('night_owl');
+    if (hour >= 18 || hour < 5) unlock('night_owl');
   }
 
   function checkFrequencyHunter(trackIndex) {
