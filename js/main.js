@@ -27,20 +27,15 @@
   });
   idleTimer = setTimeout(goIdle, IDLE_TIMEOUT);
 
-  // Change name: click player name in nav to go back to file select
+  // Change name: click player name in nav to go to name select
   if (navPlayerName) {
     navPlayerName.addEventListener('click', function() {
-      // Sync achievements before leaving
       if (window.BassmenderSaves) window.BassmenderSaves.syncAchievements();
-
       var mainContent = document.getElementById('main-content');
-      var fileScreen = document.getElementById('file-select-screen');
+      var nameScreen = document.getElementById('name-select-screen');
       if (mainContent) mainContent.classList.add('hidden');
       if (nav) nav.classList.add('hidden');
-      if (fileScreen) {
-        if (window.BassmenderSaves) window.BassmenderSaves.renderSlots();
-        fileScreen.classList.remove('hidden');
-      }
+      if (nameScreen) nameScreen.classList.remove('hidden');
     });
   }
 
@@ -50,15 +45,12 @@
     mobileChangeName.addEventListener('click', function() {
       if (window.BassmenderSaves) window.BassmenderSaves.syncAchievements();
       var mainContent = document.getElementById('main-content');
-      var fileScreen = document.getElementById('file-select-screen');
+      var nameScreen = document.getElementById('name-select-screen');
       if (mainContent) mainContent.classList.add('hidden');
       if (nav) nav.classList.add('hidden');
       if (mobileNav) mobileNav.classList.add('hidden');
       if (hamburger) hamburger.classList.remove('open');
-      if (fileScreen) {
-        if (window.BassmenderSaves) window.BassmenderSaves.renderSlots();
-        fileScreen.classList.remove('hidden');
-      }
+      if (nameScreen) nameScreen.classList.remove('hidden');
     });
   }
 
