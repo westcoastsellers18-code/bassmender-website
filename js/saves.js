@@ -69,10 +69,13 @@
     return count;
   }
 
+  var BASE_HEARTS = 3;
+  var HEARTS_PER_ACHIEVEMENT = 2;
+
   function renderHearts(unlocked) {
     var html = '';
-    var totalHearts = TOTAL_ACHIEVEMENTS * 2;
-    var filledHearts = unlocked * 2;
+    var totalHearts = BASE_HEARTS + (TOTAL_ACHIEVEMENTS * HEARTS_PER_ACHIEVEMENT);
+    var filledHearts = BASE_HEARTS + (unlocked * HEARTS_PER_ACHIEVEMENT);
     for (var i = 0; i < totalHearts; i++) {
       if (i < filledHearts) {
         html += '<span class="heart full">&hearts;</span>';
