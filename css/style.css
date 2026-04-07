@@ -447,7 +447,7 @@ body {
   .section-header { overflow: hidden; }
   .section-title { letter-spacing: 2px; word-break: break-word; font-size: clamp(1.9rem, 4.8vw, 3.4rem); }
   .tour-item { flex-direction: column; text-align: center; gap: 1rem; padding: 1.25rem; }
-  .hero-title { letter-spacing: 4px; font-size: clamp(4.68rem, 12vw, 5.76rem); }
+  .hero-title { letter-spacing: 4px; font-size: clamp(5.04rem, 14vw, 5.76rem); }
   .hero-subtitle { letter-spacing: 3px; }
   .merch-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
 }
