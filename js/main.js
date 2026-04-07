@@ -44,6 +44,24 @@
     });
   }
 
+  // Mobile change name button
+  var mobileChangeName = document.getElementById('mobile-change-name');
+  if (mobileChangeName) {
+    mobileChangeName.addEventListener('click', function() {
+      if (window.BassmenderSaves) window.BassmenderSaves.syncAchievements();
+      var mainContent = document.getElementById('main-content');
+      var fileScreen = document.getElementById('file-select-screen');
+      if (mainContent) mainContent.classList.add('hidden');
+      if (nav) nav.classList.add('hidden');
+      if (mobileNav) mobileNav.classList.add('hidden');
+      if (hamburger) hamburger.classList.remove('open');
+      if (fileScreen) {
+        if (window.BassmenderSaves) window.BassmenderSaves.renderSlots();
+        fileScreen.classList.remove('hidden');
+      }
+    });
+  }
+
   if (hamburger) {
     hamburger.addEventListener('click', function() {
       hamburger.classList.toggle('open');

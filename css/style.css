@@ -158,6 +158,12 @@ body {
   color: var(--starlight); text-decoration: none; transition: color 0.3s, text-shadow 0.3s;
 }
 .mobile-nav-link:hover { color: var(--pink); text-shadow: 0 0 20px rgba(255,92,167,0.5); }
+.mobile-change-name {
+  background: none; border: 1px solid rgba(93,63,211,0.3); border-radius: 4px;
+  padding: 0.5rem 1.5rem; font-size: 0.8rem; letter-spacing: 4px; cursor: pointer;
+  color: var(--alien-green); margin-top: 1rem;
+}
+.mobile-change-name:hover { border-color: var(--pink); color: var(--pink); }
 
 /* ===== MAIN CONTENT ===== */
 .main-content { position: relative; z-index: 1; overflow-x: hidden; }

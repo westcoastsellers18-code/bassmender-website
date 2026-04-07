@@ -71,8 +71,10 @@
 
   function renderHearts(unlocked) {
     var html = '';
-    for (var i = 0; i < TOTAL_ACHIEVEMENTS; i++) {
-      if (i < unlocked) {
+    var totalHearts = TOTAL_ACHIEVEMENTS * 2;
+    var filledHearts = unlocked * 2;
+    for (var i = 0; i < totalHearts; i++) {
+      if (i < filledHearts) {
         html += '<span class="heart full">&hearts;</span>';
       } else {
         html += '<span class="heart">&hearts;</span>';
